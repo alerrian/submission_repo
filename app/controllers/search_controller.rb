@@ -5,6 +5,8 @@ class SearchController < ApplicationController
       "https://api.nal.usda.gov/fdc/v1/search?api_key=#{ENV['FOOD_API_KEY']}&ingredients=#{params[:search_field]}"
     )
 
-    @foods = JSON.parse(response.body, symbolize_names: true)
+    food_json = JSON.parse(response.body, symbolize_names: true)
+
+    @foods = food_json[:foods]
   end
 end
