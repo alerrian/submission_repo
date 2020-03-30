@@ -1,5 +1,10 @@
 <h3>Items Returned: <%= @foods.count %></h3>
 
-<% @foods.each do |food| %>
-  
+<% @foods[0..9].each do |food| %>
+  <ul class='food'>
+    <li class='upc'><%= food[:gtinupc] %>
+    <li class='description'><%= food[:description] %>
+    <li class='brand'><%= food[:brandowner] %>
+    <li class='ingredients'><%= food[:ingredients] %>
+  </ul>
 <% end %>

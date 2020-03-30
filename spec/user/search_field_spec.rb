@@ -11,7 +11,14 @@ feature 'USER can search for types of food' do
     expect(current_path).to eq(foods_path)
     expect(page).to have_content('Items Returned: 50')
 
+    expect(page).to have_css('.food', count: 10)
     
+    within(first('.food')) do
+      expect(page).to have_css('.upc')
+      expect(page).to have_css('.description')
+      expect(page).to have_css('.brand')
+      expect(page).to have_css('.ingredients')
+    end
   end
 end
 
