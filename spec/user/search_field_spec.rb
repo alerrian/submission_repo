@@ -8,8 +8,10 @@ feature 'USER can search for types of food' do
 
     click_on 'Search'
 
-    expect(current_path).to eq('/foods')
-    expect(page).to have_content('Items returned: 50')
+    expect(current_path).to eq(foods_path)
+    expect(page).to have_content('Items Returned: 50')
+
+    
   end
 end
 
